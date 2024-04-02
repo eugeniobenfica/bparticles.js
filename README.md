@@ -11,7 +11,7 @@ A lightweight JavaScript library for creating dynamic particle effects on web pa
 
 ## Installation
 
-To use the bparticles.js in your project, simply include the `bparticles.js` file in your HTML:
+To use the bparticles.js in your project, simply include the `bparticles.js` file in your HTML and `bpAnimations.js` in your workspace:
 
 ```html
 <script src="bparticles.js"></script>
@@ -21,7 +21,7 @@ To use the bparticles.js in your project, simply include the `bparticles.js` fil
 
 ```javascript
 // Initialize the Particles Library
-const particles = new Particles(element, config);
+const particles = bparticles(element, config);
 ```
 
 Replace `element` with the HTML element where you want to display the particles, and `config` with an optional configuration object.
@@ -34,7 +34,7 @@ The `config` object can include the following options:
 - `size`: Array defining the range of particle sizes.
 - `duration`: Duration of particle animations.
 - `timeFunction`: Transition timing function.
-- `mode`: Movement mode ('random' or 'range').
+- `animation`: Movement animation.
 - `floatX`: Horizontal floating range.
 - `floatY`: Vertical floating range.
 - `autoAmount`: Automatically calculate particle amount based on screen size.
@@ -43,13 +43,14 @@ The `config` object can include the following options:
 ## Examples
 
 ```javascript
+import { animations } from "./bpAnimations.js";
 // Example configuration
 const config = {
   amount: 100,
   size: [5, 10],
   duration: 1000,
   timeFunction: 'ease-out',
-  mode: 'random',
+  animation: animations.random,
   floatX: 50,
   floatY: 50,
   autoAmount: true,
